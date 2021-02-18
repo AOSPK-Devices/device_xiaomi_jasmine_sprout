@@ -24,14 +24,9 @@
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/jasmine_sprout/device.mk)
 
-# Inherit some common stuff from Project-Awaken
-AWAKEN_BUILD_TYPE := OFFICIAL
-$(call inherit-product, vendor/awaken/config/common.mk)
-$(call inherit-product, vendor/awaken/config/gsm.mk)
+# Inherit from AOSP vendor
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-# Gapps
-USE_GAPPS := true
-IS_PHONE := true
 TARGET_GAPPS_ARCH := arm64
 TARGET_BOOT_ANIMATION_RES := 1080
 
@@ -48,9 +43,11 @@ TARGET_SCREEN_DENSITY := 400
 # Device identifier
 PRODUCT_BRAND := xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_NAME := awaken_jasmine_sprout
+PRODUCT_NAME := aosp_jasmine_sprout
 PRODUCT_DEVICE := jasmine_sprout
 PRODUCT_MODEL := Mi A2
 
 # TWRP Support
 BUILD_TWRP := true
+
+CUSTOM_BUILD_TYPE := OFFICIAL
